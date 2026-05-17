@@ -1,0 +1,520 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上海海上飞劳务派遣有限公司 - 链接人力价值，赋能企业发展</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--navy:#0B1D35;--navy-light:#132D50;--gold:#C9A96E;--gold-light:#E8D5B0;
+--teal:#1A7A6D;--cream:#FAF8F4;--white:#FFFFFF;--charcoal:#2C3E50;
+--gray:#6B7B8D;--light-gray:#E8ECF0;
+--font-serif:'Noto Serif SC',serif;--font-sans:'Noto Sans SC',sans-serif;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-sans);color:var(--charcoal);background:var(--cream);overflow-x:hidden;line-height:1.8}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;transition:all .4s ease}
+nav.scrolled{background:rgba(11,29,53,.95);backdrop-filter:blur(12px);padding:.8rem 3rem;box-shadow:0 2px 40px rgba(0,0,0,.15)}
+.nav-logo{font-family:var(--font-serif);font-size:1.3rem;font-weight:700;color:var(--white);letter-spacing:2px}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:400;letter-spacing:1px;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:.6rem 1.6rem;border-radius:4px;font-weight:600!important;letter-spacing:1px}
+.nav-cta:hover{background:var(--gold-light)!important}
+.mobile-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.mobile-toggle span{width:28px;height:2px;background:var(--white);transition:all .3s}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;background:linear-gradient(160deg,var(--navy) 0%,#0D2A4A 40%,#143D5C 100%);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-particles{position:absolute;inset:0;overflow:hidden}
+.particle{position:absolute;width:4px;height:4px;background:var(--gold);border-radius:50%;opacity:.3;animation:float 15s infinite}
+@keyframes float{0%,100%{transform:translateY(0) translateX(0);opacity:.3}25%{transform:translateY(-200px) translateX(100px);opacity:.6}50%{transform:translateY(-100px) translateX(-50px);opacity:.2}75%{transform:translateY(-300px) translateX(80px);opacity:.5}}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 2rem;max-width:900px}
+.hero-badge{display:inline-block;padding:.5rem 1.5rem;border:1px solid var(--gold);color:var(--gold);font-size:.8rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:2rem;opacity:0;animation:fadeUp .8s .3s forwards}
+.hero h1{font-family:var(--font-serif);font-size:clamp(2.5rem,5vw,4.2rem);color:var(--white);font-weight:900;line-height:1.3;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .5s forwards}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{font-size:clamp(1rem,1.5vw,1.25rem);color:rgba(255,255,255,.7);max-width:650px;margin:0 auto 2.5rem;font-weight:300;line-height:2;opacity:0;animation:fadeUp .8s .7s forwards}
+.hero-buttons{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .9s forwards}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 2.5rem;background:var(--gold);color:var(--navy);text-decoration:none;font-weight:600;border-radius:4px;letter-spacing:1px;font-size:.95rem;transition:all .3s;border:none;cursor:pointer;font-family:var(--font-sans)}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,169,110,.3)}
+.btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 2.5rem;border:1px solid rgba(255,255,255,.3);color:var(--white);text-decoration:none;font-weight:400;border-radius:4px;letter-spacing:1px;font-size:.95rem;transition:all .3s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:rgba(255,255,255,.4);font-size:.75rem;letter-spacing:2px;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+
+section{padding:7rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:4.5rem}
+.section-label{display:inline-block;font-size:.75rem;color:var(--gold);letter-spacing:4px;text-transform:uppercase;margin-bottom:1rem;font-weight:600}
+.section-title{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.8rem);color:var(--navy);font-weight:700;line-height:1.4;margin-bottom:1rem}
+.section-line{width:60px;height:2px;background:var(--gold);margin:0 auto}
+.section-desc{color:var(--gray);max-width:600px;margin:1.5rem auto 0;font-size:1rem;line-height:2}
+
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-image{position:relative}
+.about-image-main{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,var(--navy-light),var(--teal));border-radius:8px;overflow:hidden;position:relative}
+.about-image-main::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,29,53,.3),rgba(26,122,109,.3))}
+.about-image-accent{position:absolute;bottom:-20px;right:-20px;width:60%;aspect-ratio:1;background:var(--gold);border-radius:8px;z-index:-1;opacity:.15}
+.about-stats{display:flex;gap:1rem;margin-top:2.5rem}
+.stat-card{flex:1;padding:1.5rem;background:var(--cream);border-radius:8px;text-align:center;border:1px solid var(--light-gray)}
+.stat-number{font-family:var(--font-serif);font-size:2rem;font-weight:700;color:var(--gold);display:block}
+.stat-label{font-size:.8rem;color:var(--gray);margin-top:.3rem}
+.about-content h3{font-family:var(--font-serif);font-size:1.5rem;color:var(--navy);margin-bottom:1rem}
+.about-content p{color:var(--gray);margin-bottom:1.5rem;line-height:2}
+.about-values{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.value-item{display:flex;align-items:flex-start;gap:.8rem;padding:1rem;background:var(--cream);border-radius:6px}
+.value-icon{width:40px;height:40px;background:var(--navy);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:1.1rem}
+.value-text strong{display:block;font-size:.9rem;color:var(--navy);margin-bottom:.2rem}
+.value-text span{font-size:.8rem;color:var(--gray)}
+
+.services{background:var(--cream)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.service-card{background:var(--white);border-radius:12px;padding:2.5rem 2rem;transition:all .4s;position:relative;overflow:hidden;border:1px solid transparent}
+.service-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(11,29,53,.1);border-color:var(--gold)}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.5rem;color:var(--gold)}
+.service-card h3{font-family:var(--font-serif);font-size:1.3rem;color:var(--navy);margin-bottom:1rem}
+.service-card p{color:var(--gray);font-size:.9rem;line-height:1.9;margin-bottom:1.5rem}
+.service-list{list-style:none}
+.service-list li{position:relative;padding-left:1.2rem;font-size:.85rem;color:var(--gray);margin-bottom:.6rem;line-height:1.6}
+.service-list li::before{content:'';position:absolute;left:0;top:.6rem;width:6px;height:6px;background:var(--gold);border-radius:50%}
+
+.advantages{background:var(--navy);position:relative;overflow:hidden}
+.advantages::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(201,169,110,.08),transparent 50%),radial-gradient(circle at 20% 80%,rgba(26,122,109,.08),transparent 50%)}
+.advantages .section-title,.advantages .section-label{color:var(--white)}
+.advantages .section-desc{color:rgba(255,255,255,.6)}
+.advantages .section-line{background:var(--gold)}
+.adv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative;z-index:1}
+.adv-card{padding:2.5rem 2rem;border:1px solid rgba(255,255,255,.08);border-radius:12px;text-align:center;transition:all .4s;background:rgba(255,255,255,.02)}
+.adv-card:hover{background:rgba(201,169,110,.05);border-color:rgba(201,169,110,.3);transform:translateY(-5px)}
+.adv-number{font-family:var(--font-serif);font-size:3rem;font-weight:900;color:var(--gold);opacity:.3;margin-bottom:1rem;line-height:1}
+.adv-icon{font-size:2rem;margin-bottom:1.2rem}
+.adv-card h3{font-family:var(--font-serif);font-size:1.2rem;color:var(--white);margin-bottom:1rem}
+.adv-card p{color:rgba(255,255,255,.6);font-size:.85rem;line-height:1.9}
+
+.market{background:var(--white)}
+.market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
+.market-card{text-align:center;padding:3rem 2rem}
+.market-value{font-family:var(--font-serif);font-size:3.5rem;font-weight:900;color:var(--gold);line-height:1}
+.market-value span{font-size:1.5rem;font-weight:400}
+.market-card h4{font-size:1rem;color:var(--navy);margin-top:1rem;font-weight:600}
+.market-card p{font-size:.85rem;color:var(--gray);margin-top:.5rem}
+
+.cases{background:var(--cream)}
+.cases-list{display:grid;gap:1.5rem}
+.case-item{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;padding:2rem 2.5rem;background:var(--white);border-radius:10px;transition:all .3s;border-left:4px solid transparent}
+.case-item:hover{transform:translateX(8px);border-left-color:var(--gold);box-shadow:0 10px 40px rgba(0,0,0,.06)}
+.case-logo{width:50px;height:50px;background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:var(--font-serif);font-size:1.2rem;font-weight:700}
+.case-info h4{font-size:1.05rem;color:var(--navy);margin-bottom:.3rem}
+.case-info p{font-size:.85rem;color:var(--gray);line-height:1.6}
+.case-badge{padding:.5rem 1.2rem;background:var(--cream);border-radius:20px;font-size:.8rem;color:var(--teal);font-weight:600;white-space:nowrap}
+
+.contact{background:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.contact-form{display:flex;flex-direction:column;gap:1.2rem}
+.contact-form h3{font-family:var(--font-serif);font-size:1.8rem;color:var(--navy);margin-bottom:.5rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.form-group label{display:block;font-size:.8rem;color:var(--gray);margin-bottom:.5rem;font-weight:500;letter-spacing:1px}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:.9rem 1.2rem;border:1px solid var(--light-gray);border-radius:6px;font-family:var(--font-sans);font-size:.9rem;transition:border-color .3s;background:var(--cream);color:var(--charcoal)}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,.1)}
+.form-group textarea{resize:vertical;min-height:120px}
+.contact-info-list{display:flex;flex-direction:column;gap:2rem;margin-top:1rem}
+.contact-item{display:flex;gap:1.2rem}
+.contact-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:1.2rem}
+.contact-detail h4{font-size:.95rem;color:var(--navy);margin-bottom:.3rem}
+.contact-detail p{font-size:.85rem;color:var(--gray);line-height:1.7}
+.contact-map{width:100%;height:200px;background:var(--cream);border-radius:10px;margin-top:2rem;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:.9rem;border:1px solid var(--light-gray)}
+
+footer{background:var(--navy);padding:3rem 2rem;text-align:center}
+footer p{color:rgba(255,255,255,.4);font-size:.8rem;letter-spacing:1px}
+footer a{color:var(--gold);text-decoration:none}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.25,.46,.45,.94)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .adv-grid{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .market-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--navy);flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+  .nav-links.open{display:flex}
+  .mobile-toggle{display:flex}
+  .hero h1{font-size:2.2rem}
+  .services-grid,.adv-grid,.market-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .case-item{grid-template-columns:auto 1fr;gap:1rem}
+  .case-badge{display:none}
+  section{padding:4rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo">海上飞<span>劳务</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">关于我们</a></li>
+    <li><a href="#services">业务矩阵</a></li>
+    <li><a href="#advantages">核心优势</a></li>
+    <li><a href="#cases">成功案例</a></li>
+    <li><a href="#contact" class="nav-cta">联系我们</a></li>
+  </ul>
+  <div class="mobile-toggle" id="mobileToggle">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-content">
+    <div class="hero-badge">EST. 2021 · 上海浦东</div>
+    <h1>链接人力价值<br>赋能<em>企业发展</em></h1>
+    <p>上海海上飞劳务派遣有限公司 —— 您值得信赖的人力战略合作伙伴，致力于为企业提供全链条人力资源解决方案</p>
+    <div class="hero-buttons">
+      <a href="#services" class="btn-primary">了解我们的服务 →</a>
+      <a href="#contact" class="btn-outline">免费咨询</a>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL<br>↓</div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <div class="about-image-main"></div>
+        <div class="about-image-accent"></div>
+      </div>
+      <div class="about-content">
+        <div class="section-header" style="text-align:left">
+          <div class="section-label">ABOUT US</div>
+          <div class="section-title">合规专业，高效赋能</div>
+        </div>
+        <p>上海海上飞劳务派遣有限公司，成立于2021年11月，是经国家相关部门批准成立的专业人力资源服务机构。我们立足上海，辐射长三角，秉持"合规、专业、高效"的服务准则。</p>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-number">200</span>
+            <span class="stat-label">万元注册资本</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">600+</span>
+            <span class="stat-label">成功派遣人次</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">合作企业</span>
+          </div>
+        </div>
+        <div class="about-values">
+          <div class="value-item">
+            <div class="value-icon">✔</div>
+            <div class="value-text">
+              <strong>劳务派遣经营许可</strong>
+              <span>持证合规运营</span>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">✔</div>
+            <div class="value-text">
+              <strong>长三角战略布局</strong>
+              <span>立足上海，辐射区域</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="market">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">MARKET INSIGHT</div>
+      <div class="section-title">万亿蓝海，潜力无限</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="market-grid">
+      <div class="market-card reveal reveal-delay-1">
+        <div class="market-value">6<span>万亿+</span></div>
+        <h4>市场规模</h4>
+        <p>2026年中国人力资源服务行业预计突破6万亿元</p>
+      </div>
+      <div class="market-card reveal reveal-delay-2">
+        <div class="market-value">30<span>%</span></div>
+        <h4>效率提升</h4>
+        <p>采用多元用工模式的企业平均工作效率提升约30%</p>
+      </div>
+      <div class="market-card reveal reveal-delay-3">
+        <div class="market-value">35<span>%</span></div>
+        <h4>成本降低</h4>
+        <p>灵活用工在淡季可使人力成本降低约35%</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">CORE BUSINESS</div>
+      <div class="section-title">一站式人力资源解决方案</div>
+      <div class="section-line"></div>
+      <p class="section-desc">我们构建了"劳务派遣+综合服务+配套支持"三位一体的业务矩阵，满足企业不同发展阶段的多样化需求</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">⚙</div>
+        <h3>劳务派遣与建筑劳务</h3>
+        <p>全行业灵活用工派遣与建筑专业劳务分包</p>
+        <ul class="service-list">
+          <li>短期、长期、季节性劳务派遣服务</li>
+          <li>覆盖制造、物流、零售、餐饮等行业</li>
+          <li>建筑行业专业劳务分包与管理</li>
+          <li>标准化管理体系，严格把控质量</li>
+        </ul>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">☆</div>
+        <h3>人力资源综合服务</h3>
+        <p>专业赋能，让企业聚焦核心业务</p>
+        <ul class="service-list">
+          <li>招聘流程外包（RPO）与猎头服务</li>
+          <li>薪酬计算、发放与福利管理</li>
+          <li>社保代缴、个税申报一站式服务</li>
+          <li>劳动关系合规与法律咨询支持</li>
+        </ul>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">✦</div>
+        <h3>一站式配套支持</h3>
+        <p>超越传统人力服务，全方位赋能企业</p>
+        <ul class="service-list">
+          <li>企业经营与管理咨询服务</li>
+          <li>员工餐饮、住宿等后勤保障</li>
+          <li>供应链与企业采购综合支持</li>
+          <li>运输代理、物业管理等配套</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="advantages" id="advantages">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">WHY CHOOSE US</div>
+      <div class="section-title">为何选择海上飞？</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="adv-grid">
+      <div class="adv-card reveal reveal-delay-1">
+        <div class="adv-number">01</div>
+        <div class="adv-icon">⚖</div>
+        <h3>合规保障</h3>
+        <p>严格遵守国家法律法规，建立完善的合规审查机制，为企业提供稳健、无风险的用工环境</p>
+      </div>
+      <div class="adv-card reveal reveal-delay-2">
+        <div class="adv-number">02</div>
+        <div class="adv-icon">⚡</div>
+        <h3>灵活高效</h3>
+        <p>快速响应临时性、突发性用工需求，庞大人才储备库实现人力配置敏捷化</p>
+      </div>
+      <div class="adv-card reveal reveal-delay-3">
+        <div class="adv-number">03</div>
+        <div class="adv-icon">★</div>
+        <h3>专业团队</h3>
+        <p>核心成员多年行业经验，深刻理解各行业用工特点与痛点，提供定制化解决方案</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-number">04</div>
+        <div class="adv-icon">✦</div>
+        <h3>资源整合</h3>
+        <p>联动上下游产业链，构建"人力+配套"一站式服务生态，实现成本优化</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cases" id="cases">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">SUCCESS STORIES</div>
+      <div class="section-title">携手行业翘楚，共创价值</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="cases-list">
+      <div class="case-item reveal">
+        <div class="case-logo">海</div>
+        <div class="case-info">
+          <h4>上海海昌极地海洋世界有限公司</h4>
+          <p>成功提供200人季节性用工支持，精准匹配旅游旺季用人高峰，有力保障酒店业务高效运转</p>
+        </div>
+        <div class="case-badge">200人</div>
+      </div>
+      <div class="case-item reveal reveal-delay-1">
+        <div class="case-logo">黎</div>
+        <div class="case-info">
+          <h4>上海黎峰保安服务集团有限公司</h4>
+          <p>协助提供日常保安劳务用工200人，标准化管理流程与高质量人员供给，建立长期战略合作关系</p>
+        </div>
+        <div class="case-badge">200人</div>
+      </div>
+      <div class="case-item reveal reveal-delay-2">
+        <div class="case-logo">沪</div>
+        <div class="case-info">
+          <h4>上海沪杰保安服务有限公司</h4>
+          <p>协助提供日常保安劳务用工150人，在大型活动安保及多站点人员配置中展现规模化统筹与交付能力</p>
+        </div>
+        <div class="case-badge">150人</div>
+      </div>
+      <div class="case-item reveal reveal-delay-3">
+        <div class="case-logo">虎</div>
+        <div class="case-info">
+          <h4>上海虎啸保安服务有限公司</h4>
+          <p>协助提供日常保安劳务用工50人，为各类商业及公共设施提供专业安全防范与秩序维护</p>
+        </div>
+        <div class="case-badge">50人</div>
+      </div>
+      <div class="case-item reveal">
+        <div class="case-logo">鲸</div>
+        <div class="case-info">
+          <h4>中鲸建设有限公司</h4>
+          <p>提供专业现场施工人员派遣与用工风险管控、薪酬优化等服务咨询，保障大型建筑项目顺利推进</p>
+        </div>
+        <div class="case-badge">施工派遣</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">CONTACT US</div>
+      <div class="section-title">携手海上飞，共创未来</div>
+      <div class="section-line"></div>
+      <p class="section-desc">选择海上飞，就是选择了专业、高效与安心。期待与您携手，共同应对挑战，把握机遇</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-form reveal">
+        <h3>在线咨询</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>您的姓名</label>
+            <input type="text" placeholder="请输入姓名">
+          </div>
+          <div class="form-group">
+            <label>联系电话</label>
+            <input type="tel" placeholder="请输入电话">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>公司名称</label>
+          <input type="text" placeholder="请输入公司名称">
+        </div>
+        <div class="form-group">
+          <label>需求类型</label>
+          <select>
+            <option>劳务派遣服务</option>
+            <option>建筑劳务分包</option>
+            <option>招聘外包（RPO）</option>
+            <option>薪酬福利管理</option>
+            <option>劳动关系咨询</option>
+            <option>其他配套服务</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>详细需求</label>
+          <textarea placeholder="请描述您的具体需求..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center">提交咨询 →</button>
+      </div>
+      <div class="reveal">
+        <div class="contact-info-list">
+          <div class="contact-item">
+            <div class="contact-icon">☎</div>
+            <div class="contact-detail">
+              <h4>联系电话</h4>
+              <p>135-6430-9927</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉</div>
+            <div class="contact-detail">
+              <h4>商务邮箱</h4>
+              <p>87179284@qq.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">⌂</div>
+            <div class="contact-detail">
+              <h4>公司地址</h4>
+              <p>上海市浦东新区靖海路887弄102支弄146号</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">💬</div>
+            <div class="contact-detail">
+              <h4>微信咨询</h4>
+              <p>扫描二维码或搜索手机号添加微信</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-map">📍 上海市浦东新区靖海路887弄102支弄146号</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2021-2026 上海海上飞劳务派遣有限公司</p>
+  <p style="margin-top:.5rem;color:rgba(255,255,255,.25)">链接人力价值，赋能企业发展</p>
+</footer>
+
+<script>
+(function(){
+  const c=document.getElementById('particles');
+  for(let i=0;i<20;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    p.style.left=Math.random()*100+'%';
+    p.style.top=Math.random()*100+'%';
+    p.style.animationDelay=Math.random()*15+'s';
+    p.style.animationDuration=(10+Math.random()*20)+'s';
+    p.style.width=p.style.height=(2+Math.random()*4)+'px';
+    c.appendChild(p);
+  }
+})();
+
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>80)});
+
+document.getElementById('mobileToggle').addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));
+});
+
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
